@@ -89,7 +89,7 @@ module Filteur::GroupDefinition
     end
 
     def ==(obj)
-      obj.is_a?(Filter) && obj.group == group && obj.tag == tag
+      obj.is_a?(Filteur::Base) && obj.group == group && obj.tag == tag
     end
   end
 
