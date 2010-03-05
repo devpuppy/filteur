@@ -1,0 +1,22 @@
+= Filteur
+
+Quick plugin for adding filterable data to your ActiveRecord models.
+
+
+= Example
+
+app/models/thing.rb
+  class Thing < ActiveRecord::Base
+    has_filters :class_name => 'Thing::Filter' #, :field_name => 'filter_data'
+  end
+
+app/models/thing/filter.rb
+  class Thing
+    class Filter < Filteur::Base
+      define_group :foo, ['bar', 'baz']
+      define_group :group, ['foo']
+    end
+  end
+
+
+Copyright (c) 2010 Justin Jones, released under the MIT license
