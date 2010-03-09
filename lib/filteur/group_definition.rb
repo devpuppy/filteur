@@ -77,7 +77,7 @@ module Filteur::GroupDefinition
         group, tag = t.split('__')
         return nil unless send(:groups).detect{|i| i.tag == group}
         send(:"#{group.pluralize}").detect{|i| i.tag == tag}
-      end
+      end.compact
     end
     
   end
