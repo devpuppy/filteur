@@ -11,7 +11,7 @@ class Filteur::Base
   end
     
   # TODO: change default to filter_data, or get from variable set by has_filters
-  def self.to_sql(filters, field_name = "filter_text")
+  def self.to_sql(filters, field_name = "filter_data")
     to_expression(filters, 'AND', 'OR', "#{field_name} LIKE '%", "%'")
   end
   
