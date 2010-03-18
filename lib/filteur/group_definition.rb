@@ -75,8 +75,11 @@ module Filteur::GroupDefinition
       return [] if text.blank?
       text.split(' ').map do |t|
         group, tag = t.split('__')
-        return nil unless send(:groups).detect{|i| i.tag == group}
-        send(:"#{group.pluralize}").detect{|i| i.tag == tag}
+        unless send(:groups).detect{|i| i.tag == group}
+          nil
+        else
+          send(:"#{group.pluralize}").detect{|i| i.tag == tag}
+        end
       end.compact
     end
     
